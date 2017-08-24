@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+<head>
+	<title>fcoo.dk - fake-localstorage - Demo</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	<meta name='copyright' content='FCOO'>
+	<meta name='owner' content='FCOO'>
+
+</head>
+
+<body>
+	<script src="../src/fake-localstorage.js"></script>
+	<script>
+        function w( str ){ document.body.innerHTML = document.body.innerHTML + '<br>' + str; }
+
+        document.body.innerHTML = 'window.fake_localstorage_installed = ' + window.fake_localstorage_installed;
+
+        var test = localStorage.getItem("this_is_a_test");
+        w( '1: var test = localStorage.getItem("this_is_a_test"); //test="' + test + '"');
+
+        localStorage.setItem('this_is_a_test', 'Saved on '+ (new Date()).toString());
+        w( '2: localStorage.setItem("this_is_a_test", "Saved on "+ (new Date()).toString());');
+
+
+        var test = localStorage.getItem("this_is_a_test");
+        w( '3: test = localStorage.getItem("this_is_a_test"); //test="' + test + '"');
+
+        w('Done');
+
+
+	</script>
+</body>
+</html>
